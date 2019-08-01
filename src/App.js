@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Header from './components/Header';
+import Generos from './pages/generos';
+import EditarGenero from './controllers/EditarGenero';
+import NovoGenero from './controllers/NovoGenero';
 
 const Home = () => {
   return <h1>Home</h1>;
-};
-
-const Generos = () => {
-  return <h1>Generos</h1>;
 };
 
 function App() {
@@ -24,7 +23,9 @@ function App() {
       <div>
         <Header />
         <Route exact path="/" component={Home} />
-        <Route path="/generos" component={Generos} />
+        <Route exact path="/generos/:id" component={EditarGenero} />
+        <Route exact path="/generos/novo" component={NovoGenero} />
+        <Route exact path="/generos" component={Generos} />
         <pre>{JSON.stringify(data)}</pre>
       </div>
     </Router>
